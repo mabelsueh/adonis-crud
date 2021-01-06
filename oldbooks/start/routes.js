@@ -29,3 +29,16 @@ Route.get('authors/create', 'AuthorController.create')
 Route.post('authors/create', 'AuthorController.processCreate')
 Route.get('authors/:author_id', 'AuthorController.show').as('show_author')
 
+// related routes get grouped together under one controller.js where 1 function
+// returns the required stuff ({view, params, request, response}) as specified
+// this is the CRUD
+// Route.get/post('route','NameOfController.nameOfFunction').as('name_of_entire_route)
+// what it means: for this route, use this function
+Route.get('publishers/', 'PublisherController.index').as('show_all_publishers')
+Route.get('publishers/:publisher_id', 'PublisherController.show').as('show_publisher')
+Route.get('publishers/create', 'PublisherController.create')
+Route.post('publishers/create', 'PublisherController.processCreate')
+Route.get('publishers/:publisher_id/update', 'PublisherController.update')
+Route.get('publisher/:publisher_id/update','PublisherController.processUpdate')
+Route.get('publishers/:publisher_id/delete', 'PublisherController.delete')
+Route.get('publisher/:publisher_id/delete','PublisherController.processDelete').as('processDelete')
